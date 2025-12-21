@@ -24,13 +24,13 @@ app.use("/api/groups", groupRoutes);
 
 // make ready for deployment
 if (ENV.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
- 
+  app.use(express.static(path.join(__dirname, "../../frontend/build"))); // serve static files
 
   app.get("*", (_, res) => {
-    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+    res.sendFile(path.join(__dirname, "../../frontend/build/index.html")); // send index.html
   });
 }
+
 
 server.listen(PORT, () => {
   console.log("Server running on port: " + PORT);
