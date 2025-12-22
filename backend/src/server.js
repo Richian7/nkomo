@@ -32,15 +32,15 @@ app.use("/api/messages", messageRoutes);
 app.use("/api/groups", groupRoutes);
 
 /* ===================== PRODUCTION ===================== */
-if (ENV.NODE_ENV === "production") {
-  const frontendPath = path.join(__dirname, "../../frontend/build");
+// if (ENV.NODE_ENV === "production") {
+//   const frontendPath = path.join(__dirname, "../../frontend/build");
 
-  app.use(express.static(frontendPath));
+//   app.use(express.static(frontendPath));
 
-  app.get("*", (_, res) => {
-    res.sendFile(path.join(frontendPath, "index.html"));
-  });
-}
+//   app.get("*", (_, res) => {
+//     res.sendFile(path.join(frontendPath, "index.html"));
+//   });
+// }
 /* ====================================================== */
 
 server.listen(PORT, () => {
